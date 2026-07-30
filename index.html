@@ -70,14 +70,16 @@
       [SYSTEM LOG :: PATH FRAGMENT 1 OF 2]
       ===================================================================
       STATUS     : BASE ROUTE LOCATED
-      BASE_PATH  : /vault_
+      BASE_PATH  : vault_
       
       CROSS-HINT : You have found Fragment 1 (BASE_PATH).
-                   Fragment 2 (FILE_KEY) is hidden deeper in this page inside 
-                   an unexpanded DOM element (#secure-payload-node). 
+                   Fragment 2 (FILE_KEY) is hidden deeper inside an 
+                   unexpanded DOM element (#secure-payload-node). 
                    Inspect the body tags to reveal it!
 
-      COMBINE    : BASE_PATH + FILE_KEY -> then type that link in browser to find the flag
+      COMBINE    : BASE_PATH + FILE_KEY -> then type that link:
+                   "https://databased-ctf.github.io/CTF-BLACKOUT/<BASE_PATH+FILE_KEY>"
+                   in browser to find the flag.
       ===================================================================
     -->
 
@@ -100,8 +102,8 @@
     <div id="secure-payload-node" style="display: none;"></div>
 
     <script>
-        // Encoded payload - Ctrl+U cannot spoil the secret key!
-        const payload = `Cj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQpbU1lTVEVN IExPRyA6OiBQQVRIIEZSQUdNRU5UIDIgT0YgMl0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09U1RBVFVTICAgICA6IEZJTEUgS0VZ IExPQ0FURUQKRklMRV9LRVkgICA6IGtleV84ZjkyYTEuaHRtbAoKQ1JPU1MtSElO VCA6IFlvdSBoYXZlIGZvdW5kIEZyYWdtZW50IDIgKEZJTEVfS0VZKS4KICAgICAg ICAgICAgIElmIHlvdSBzdHVtYmxlZCBoZXJlIGZpcnN0LCBjaGVjayB0aGUgdG9w IEhUTUwgY29tbWVudCAKICAgICAgICAgICAgIGluIFZpZXcgU291cmNlIChDdHJs K1UpIHRvIHJldHJpZXZlIEZyYWdtZW50IDEgKEJBU0VfUEFUSCkuCiAgICAgICAg ICAgICAKQ09NQklORSAgICA6IEJBU0VfUEFUSCArIEZJTEVfS0VZIC0+IHRoZW4g dHlwZSB0aGF0IGxpbmsgaW4gYnJvd3NlciB0byBmaW5kIHRoZSBmbGFnCj09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PQo=`;
+        // Updated Base64 encoded payload holding Fragment 2
+        const payload = `Cj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQpbU1lTVEVN IExPRyA6OiBQQVRIIEZSQUdNRU5UIDIgT0YgMl0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09U1RBVFVTICAgICA6IEZJTEUgS0VZ IExPQ0FURUQKRklMRV9LRVkgICA6IGtleV84ZjkyYTEuaHRtbAoKQ1JPU1MtSElO VCA6IFlvdSBoYXZlIGZvdW5kIEZyYWdtZW50IDIgKEZJTEVfS0VZKS4KICAgICAg ICAgICAgIElmIHlvdSBzdHVtYmxlZCBoZXJlIGZpcnN0LCBjaGVjayB0aGUgdG9w IEhUTUwgY29tbWVudCAKICAgICAgICAgICAgIGluIFZpZXcgU291cmNlIChDdHJs K1UpIHRvIHJldHJpZXZlIEZyYWdtZW50IDEgKEJBU0VfUEFUSCkuCiAgICAgICAg ICAgICAKQ09NQklORSAgICA6IEJBU0VfUEFUSCArIEZJTEVfS0VZIC0+IHRoZW4g dHlwZSB0aGF0IGxpbms6CiAgICAgICAgICAgICAiaHR0cHM6Ly9kYXRhYmFzZWQt Y3RmLmdpdGh1Yi5pby9DVEYtQkxBQ0tPVVQvPEJBU0VfUEFUSCtGSUxFX0tFWT4i CiAgICAgICAgICAgICBpbiBicm93c2VyIHRvIGZpbmQgdGhlIGZsYWcuCj09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PQo=`;
 
         const hiddenNode = document.getElementById('secure-payload-node');
         const decodedComment = atob(payload.replace(/\s+/g, ''));
