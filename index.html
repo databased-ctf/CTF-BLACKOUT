@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackout Gateway</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #030303;
+            color: #00ff66;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Top-Left Error Box */
+        .error-container {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 0.75em;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
+        .error-header {
+            color: #ff3333;
+            font-weight: bold;
+        }
+
+        .status-header {
+            color: #ffaa00;
+            opacity: 0.8;
+        }
+
+        /* Bottom-Right Cryptic Message Box */
+        .message-container {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            text-align: right;
+            max-width: 450px;
+        }
+
+        .message-body {
+            color: #777777;
+            font-size: 0.78em;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: #00ff66;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      ===================================================================
+      [SYSTEM LOG :: PATH FRAGMENT 1 OF 2]
+      ===================================================================
+      STATUS     : BASE ROUTE LOCATED
+      BASE_PATH  : /vault_
+      
+      CROSS-HINT : You have found Fragment 1 (BASE_PATH).
+                   Fragment 2 (FILE_KEY) is hidden deeper in this page inside 
+                   an unexpanded DOM element (#secure-payload-node). 
+                   Inspect the body tags to reveal it!
+
+      COMBINE    : BASE_PATH + FILE_KEY -> then type that link in browser to find the flag
+      ===================================================================
+    -->
+
+    <!-- Top-Left Corner Error -->
+    <div class="error-container">
+        <div class="error-header">[ ERROR 404 : VISUAL WORLD ENDS HERE ]</div>
+        <div class="status-header">[ STATUS : COULDNT ACCESS THE UNDERGROUND ]</div>
+    </div>
+
+    <!-- Bottom-Right Corner Cryptic Message -->
+    <div class="message-container">
+        <p class="message-body">
+            Light only renders what the surface permits.<br>
+            To find where the light originates, view the <span class="highlight">RAW SOURCE</span>.<br>
+            To uncover what hides in the dark, <span class="highlight">INSPECT</span> the nested shadows.
+        </p>
+    </div>
+
+    <!-- Hidden container holding Fragment 2 -->
+    <div id="secure-payload-node" style="display: none;"></div>
+
+    <script>
+        // Encoded payload - Ctrl+U cannot spoil the secret key!
+        const payload = `Cj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQpbU1lTVEVN IExPRyA6OiBQQVRIIEZSQUdNRU5UIDIgT0YgMl0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09U1RBVFVTICAgICA6IEZJTEUgS0VZ IExPQ0FURUQKRklMRV9LRVkgICA6IGtleV84ZjkyYTEuaHRtbAoKQ1JPU1MtSElO VCA6IFlvdSBoYXZlIGZvdW5kIEZyYWdtZW50IDIgKEZJTEVfS0VZKS4KICAgICAg ICAgICAgIElmIHlvdSBzdHVtYmxlZCBoZXJlIGZpcnN0LCBjaGVjayB0aGUgdG9w IEhUTUwgY29tbWVudCAKICAgICAgICAgICAgIGluIFZpZXcgU291cmNlIChDdHJs K1UpIHRvIHJldHJpZXZlIEZyYWdtZW50IDEgKEJBU0VfUEFUSCkuCiAgICAgICAg ICAgICAKQ09NQklORSAgICA6IEJBU0VfUEFUSCArIEZJTEVfS0VZIC0+IHRoZW4g dHlwZSB0aGF0IGxpbmsgaW4gYnJvd3NlciB0byBmaW5kIHRoZSBmbGFnCj09PT09 PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09 PT09PT09PT09PQo=`;
+
+        const hiddenNode = document.getElementById('secure-payload-node');
+        const decodedComment = atob(payload.replace(/\s+/g, ''));
+        hiddenNode.appendChild(document.createComment(decodedComment));
+    </script>
+
+</body>
+</html>

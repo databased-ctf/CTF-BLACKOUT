@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underground Vault</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            border: 2px dashed #00ff66;
+            background-color: #0a0a0a;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.2);
+            text-align: center;
+            max-width: 600px;
+        }
+        .status-title {
+            color: #00ff66;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        .flag-container {
+            margin-top: 30px;
+            background: #001a08;
+            border: 1px solid #00ff66;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .flag-text {
+            font-size: 1.2em;
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="status-title">[ ACCESSED_THE_UNDERGROUND ]</div>
+        <p style="color: #aaaaaa;">You successfully bypassed the surface layer and reconstructed the endpoint.</p>
+        
+        <div class="flag-container">
+            <span style="color: #888; font-size: 0.85em;">YOUR CTF FLAG:</span><br><br>
+            <span class="flag-text">CTF{ACCESSED_THE_UNDERGROUND}</span>
+        </div>
+    </div>
+
+</body>
+</html>
